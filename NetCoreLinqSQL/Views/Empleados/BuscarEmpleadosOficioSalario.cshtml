@@ -1,0 +1,46 @@
+﻿@model List<Empleado>
+
+<h1 style="color:blue">
+    Buscar Empleados
+</h1>
+<a asp-controller="Empleados" asp-action="TodosEmpleados" >
+    Listado Empleados
+</a>
+
+<form method="post">
+    <label>Salario: </label>
+    <input type="number" name="salario"
+           class="form-control" /><br />
+
+    <label>Oficio: </label>
+    <input type="text" name="oficio"
+           class="form-control" /><br />
+
+    <button type="submit"class="btn btn-outline-success">
+        Buscar empleados
+    </button>
+
+</form>
+
+@if (Model != null) 
+{
+    <table class="table table-secondary">
+        <thead>
+            <tr>
+                <td>Apellido</td>
+                <td>Oficio</td>
+                <td>Salario</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Empleado empleado in Model) 
+            {
+                <tr>
+                    <td>@empleado.Apellido</td>
+                    <td>@empleado.Oficio</td>
+                    <td>@empleado.Salario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

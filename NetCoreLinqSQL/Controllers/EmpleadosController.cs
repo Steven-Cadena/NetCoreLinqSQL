@@ -33,5 +33,16 @@ namespace NetCoreLinqSQL.Controllers
             Empleado empleado = this.context.FindEmpleado(idempleado);
             return View(empleado);
         }
+
+        public IActionResult BuscarEmpleadosOficioSalario() 
+        {
+            return View();    
+        }
+        [HttpPost]
+        public IActionResult BuscarEmpleadosOficioSalario(int salario,string oficio)
+        {
+            List<Empleado> empleados = this.context.GetEmpleadosOficioSalario(oficio, salario);
+            return View(empleados);
+        }
     }
 }
