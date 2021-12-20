@@ -1,0 +1,17 @@
+﻿@model Empleado
+
+<a asp-controller="Empleados"
+   asp-action="TodosEmpleados"
+   class="btn btn-danger">
+    Volver al listado
+</a>
+
+<h1>Detalles Linq</h1>
+
+<h1>Apellido: @Model.Apellido</h1>
+<h1>Oficio: @Model.Oficio</h1>
+<h1>Salario: @Model.Salario</h1>
+<h1>Departamento: @Model.IdDepartamento</h1>
+
+
+
