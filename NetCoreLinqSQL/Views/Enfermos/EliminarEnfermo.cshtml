@@ -1,0 +1,40 @@
+﻿@model List<Enfermo>
+
+<h1>Todos Enfermos</h1>
+
+<form method="post">
+    <h1 style="color:red">Eliminar Enfermo</h1>
+
+    <label>Introduzca inscripción:</label>
+    <input type="text" name="inscripcion" class="form-control"/>
+    <button type="submit" class="btn btn-danger">
+        Eliminar enfermo
+    </button>
+</form>
+<table class="table table-primary text-center">
+    <thead>
+        <tr>
+            <th>Inscripción</th>
+            <th>Apellido</th>
+            <th>Direción</th>
+            <th>NSS</th>
+            <th>Fecha Nacimiento</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null)
+        {
+             @foreach (Enfermo enf in Model)
+            {
+                <tr>
+                    <td>@enf.Inscripcion</td>
+                    <td>@enf.Apellido</td>
+                    <td>@enf.Direccion</td>
+                    <td>@enf.NSS</td>
+                    <td>@enf.FechaNacimiento.ToShortDateString()</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

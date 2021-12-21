@@ -17,18 +17,21 @@ namespace NetCoreLinqSQL.Controllers
         {
             this.context = new EnfermosContext();
         }
-        public IActionResult TodosEnfermos()
+
+        //metodo GET
+        public IActionResult EliminarEnfermo()
         {
             List<Enfermo> enfermos = this.context.GetEnfermos();
             return View(enfermos);
         }
-        public IActionResult Index()
+        //metodo POST
+        [HttpPost]
+        public IActionResult EliminarEnfermo(int inscripcion) 
+        
         {
-            return View();
-        }
-        public IActionResult Delete(string idenfermo) 
-        {
-            
+            this.context.EliminarEnfermo(inscripcion);
+            List<Enfermo> enfermos = this.context.GetEnfermos();
+            return View(enfermos);
         }
     }
 }
